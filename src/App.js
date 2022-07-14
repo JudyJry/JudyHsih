@@ -1,14 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          這個人太懶惰了，作品集還沒生出來。
         </p>
+        <a
+          className="App-link"
+          href="https://u10714117.wixsite.com/judy-hsih-portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          2021的作品集網站 (WIX製作)
+        </a>
         <a
           className="App-link"
           href="https://reactjs.org"
