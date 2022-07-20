@@ -1,0 +1,20 @@
+@import "custom";
+@import "homepage";
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', Microsoft JhengHei, Arial, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

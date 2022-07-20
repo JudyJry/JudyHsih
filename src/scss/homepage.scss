@@ -1,0 +1,64 @@
+$logo-purple: rgb(98, 78, 145);
+$logo-red:rgb(217, 73, 93);
+
+.homepage {
+    margin: auto;
+
+    .homepage-link-list {
+        .homepage-link {
+            --r: 15em;
+            position: relative;
+            text-align: center;
+            line-height: var(--r);
+            width: var(--r);
+            height: var(--r);
+            margin: calc(var(--r)/2);
+            text-decoration: none;
+
+            div {
+
+                font-size: 1.6em;
+                color: $logo-purple;
+                transition: all .6s;
+
+                &:hover {
+                    color: $logo-red;
+                }
+            }
+
+            &::before {
+                --r: 15em;
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                width: var(--r);
+                height: var(--r);
+                background-color: white;
+                transform: rotate(45deg);
+                transition: all .6s;
+            }
+
+            &::after {
+                --r: calc(15em + 10px);
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: -5px;
+                left: -5px;
+                width: var(--r);
+                height: var(--r);
+                border: 1px solid white;
+                transform: rotate(45deg);
+            }
+
+            &:hover {
+                &::before {
+                    box-shadow: 0 0 2em 10px $logo-red;
+                }
+            }
+
+        }
+    }
+}

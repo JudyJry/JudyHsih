@@ -1,0 +1,43 @@
+@import "bootstrap/scss/bootstrap";
+
+$custom-colors: ("logo-purple": rgb(98, 78, 145), "logo-red":rgb(217, 73, 93));
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+body {
+    background-color: map-get($custom-colors, logo-purple);
+}
+
+.bg-logo-purple {
+    background-color: map-get($custom-colors, logo-purple);
+}
+
+.bg-logo-red {
+    background-color: map-get($custom-colors, logo-red);
+}
+
+.navbar {
+    .navbar-brand {
+        letter-spacing: 0.4em;
+        font-weight: thin;
+    }
+
+    .navbar-toggler {
+        border: none;
+        outline: 0;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .nav-link {
+        font-size: 1.6em;
+    }
+}
+
+.offcanvas {
+    .btn-close {
+        background: none;
+    }
+}
