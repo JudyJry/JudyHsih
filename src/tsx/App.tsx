@@ -1,7 +1,10 @@
 import React from 'react';
+import { HashRouter } from "react-router-dom";
+import Router from "./Router";
 import NavBar from './navBar';
+import Background from './background';
 
-function App() {
+function App(): JSX.Element {
 
   function wheel(e: React.WheelEvent) {
     console.info('x' + e.deltaX);
@@ -11,30 +14,13 @@ function App() {
   }
 
   return (
-    <div className="App" onWheel={(e) => wheel(e)}>
-      <NavBar></NavBar>
-      <div className="homepage">
-        <HomePageLinkList></HomePageLinkList>
+    <HashRouter>
+      <div className="App" onWheel={(e) => wheel(e)}>
+        <Background></Background>
+        <NavBar></NavBar>
+        <Router></Router>
       </div>
-    </div>
-  );
-}
-
-function HomePageLinkList(props: React.PropsWithChildren<{}>) {
-  return (
-    <div className="homepage-link-list d-flex flex-row position-absolute top-50 start-50 translate-middle">
-      <HomePageLink link="">關於我</HomePageLink>
-      <HomePageLink link="">作品們</HomePageLink>
-      <HomePageLink link="">想聯絡</HomePageLink>
-    </div>
-  );
-}
-
-function HomePageLink(props: React.PropsWithChildren<{ link: string }>) {
-  return (
-    <a className="homepage-link" href={props.link}>
-      <div>{props.children}</div>
-    </a>
+    </HashRouter>
   );
 }
 

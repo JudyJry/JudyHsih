@@ -1,0 +1,20 @@
+.PageContact {
+
+    .context {
+        min-width: max-content;
+    }
+
+    p:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
+    .logo {
+        width: 200px;
+        margin-right: 1.6em;
+
+        @media (max-width: 991.98px) {
+            margin-top: 3.2em;
+            margin-right: 0;
+        }
+    }
+}

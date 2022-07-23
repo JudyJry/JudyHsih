@@ -15,6 +15,18 @@ $logo-red:rgb(217, 73, 93);
             margin: calc(var(--r)/2);
             text-decoration: none;
 
+            @media (max-width: 991.98px) {
+                margin: calc(var(--r)/-10);
+
+                &:nth-child(odd) {
+                    transform: translateX(calc(var(--r)/-2.5));
+                }
+
+                &:nth-child(even) {
+                    transform: translateX(calc(var(--r)/2.5));
+                }
+            }
+
             div {
 
                 font-size: 1.6em;

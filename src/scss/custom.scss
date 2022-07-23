@@ -17,9 +17,27 @@ body {
 }
 
 .navbar {
+    z-index: 1000;
+
     .navbar-brand {
         letter-spacing: 0.4em;
         font-weight: thin;
+
+        img {
+            display: none;
+        }
+
+        @media (max-width: 991.98px) {
+
+            span {
+                display: none;
+            }
+
+            img {
+                display: block;
+                width: 32px;
+            }
+        }
     }
 
     .navbar-toggler {
@@ -33,10 +51,60 @@ body {
 
     .nav-link {
         font-size: 1.6em;
+        transition: all .5s;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: rgba(white, 50%);
+            transition: all .5s;
+        }
+
+        &:hover {
+            padding-left: 20px;
+
+            &::before {
+                width: 100%;
+            }
+        }
     }
 }
 
 .offcanvas {
+    --r: 50em;
+    background-color: transparent;
+
+    &.offcanvas-start {
+        border-right: none;
+
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: calc(var(--r)/-2);
+        left: calc(var(--r)/-2);
+        width: 0;
+        height: 0;
+        transform: rotate(45deg);
+        transform-origin: center;
+        background-color: map-get($custom-colors, logo-red);
+        transition: all .5s;
+    }
+
+    &.show {
+        &::before {
+            width: var(--r);
+            height: var(--r);
+        }
+    }
+
     .btn-close {
         background: none;
     }

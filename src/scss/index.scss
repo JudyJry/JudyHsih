@@ -1,5 +1,9 @@
 @import "custom";
 @import "homepage";
+@import "background";
+@import "PageAbout";
+@import "PageWorks";
+@import "PageContact";
 
 *,
 html,
@@ -10,11 +14,58 @@ body {
 }
 
 html {
+  position: relative;
+  min-height: 100%;
+  /* make sure it is at least as tall as the viewport */
   font-size: 16px;
   overflow-x: hidden;
+
+  // `sm` applies to x-small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) {
+    font-size: 10px;
+  }
+
+  // `md` applies to small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+    font-size: 12px;
+  }
+
+  // `lg` applies to medium devices (tablets, less than 992px)
+  @media (max-width: 991.98px) {
+    font-size: 14px;
+  }
+}
+
+body {
+  height: 100%;
+  /* force the BODY element to match the height of the HTML element */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.page {
+  color: white;
+  padding-top: 3.375em;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0;
+
+  .title {
+    letter-spacing: 0.3em;
+    font-size: 1.6em;
+    margin-bottom: 1.6em;
+  }
+}
+
+.fade-enter-done {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.fade-exit-done {
+  opacity: 0;
+  transition: opacity 1s;
 }
