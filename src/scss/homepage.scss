@@ -14,18 +14,7 @@ $logo-red:rgb(217, 73, 93);
             height: var(--r);
             margin: calc(var(--r)/2);
             text-decoration: none;
-
-            @media (max-width: 991.98px) {
-                margin: calc(var(--r)/-10);
-
-                &:nth-child(odd) {
-                    transform: translateX(calc(var(--r)/-2.5));
-                }
-
-                &:nth-child(even) {
-                    transform: translateX(calc(var(--r)/2.5));
-                }
-            }
+            animation: slide-in-top 1s ease-out both;
 
             div {
 
@@ -69,8 +58,88 @@ $logo-red:rgb(217, 73, 93);
                 &::before {
                     box-shadow: 0 0 2em 10px $logo-red;
                 }
+
+                &::after {
+                    animation: home-border-scale .8s ease-out infinite;
+                }
             }
 
+            @media (max-width: 1399.98px) {
+                margin: calc(var(--r)/3);
+            }
+
+            @media (max-width: 1199.98px) {
+                margin: calc(var(--r)/4);
+            }
+
+            @media (max-width: 991.98px) {
+                margin: calc(var(--r)/-10);
+
+                &.order-1,
+                &.order-3 {
+                    animation: scale-in-odd 1s ease-out both;
+                }
+
+                &.order-2 {
+                    animation: scale-in-even 1s ease-out both;
+                }
+            }
+
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i*0.5}s;
+                }
+            }
         }
+    }
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+$r:15em;
+
+@keyframes scale-in-odd {
+    0% {
+        transform: translateX(calc(var(--r)/-2.5)) scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(calc(var(--r)/-2.5)) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-even {
+    0% {
+        transform: translateX(calc(var(--r)/2.5)) scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(calc(var(--r)/2.5)) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes home-border-scale {
+    0% {
+        opacity: 1;
+        transform: rotate(45deg) scale(0.96);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) scale(1.1);
     }
 }

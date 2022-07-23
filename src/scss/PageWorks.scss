@@ -6,4 +6,124 @@
     .title {
         text-align: center;
     }
+
+    .workList {
+        .workList-item {
+            --r: 20em;
+            position: relative;
+            display: block;
+            width: var(--r);
+            height: var(--r);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            margin: 0 auto;
+
+            .item-img {
+                width: var(--r);
+                height: var(--r);
+                z-index: -1;
+                transition: all .5s;
+
+                img {
+                    background-color: rgb(217, 73, 93);
+                    width: 100%;
+                    height: auto;
+                    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                    object-fit: cover;
+                    transition: all .5s;
+                }
+
+                &::before {
+                    --s: 14px;
+                    --r: calc(20em + var(--s));
+                    content: "";
+                    position: absolute;
+                    top: calc(var(--s)*-0.5);
+                    left: calc(var(--s)*-0.5);
+                    width: var(--r);
+                    height: var(--r);
+                    border: 2px solid white;
+                    transform-origin: center;
+                    transform: rotate(45deg) scale(0.71);
+                    transition: all .5s;
+                }
+
+                &::after {
+                    --r: 20em;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: var(--r);
+                    height: var(--r);
+                    border: 2px solid white;
+                    transform-origin: center;
+                    transform: rotate(45deg) scale(0.71);
+                }
+            }
+
+            .item-info {
+                position: relative;
+                top: calc(var(--r)/-2);
+                opacity: 0;
+                transition: all .5s;
+                transform: translateY(-50%);
+
+                .item-name {}
+
+                .item-tag {
+                    color: rgba(white, 80%);
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 20em;
+                height: 20em;
+                background-color: white;
+                transform-origin: center;
+                transform: rotate(-45deg) scale(0.71);
+                opacity: 0;
+                transition: all .8s;
+            }
+
+            &:hover {
+
+                .item-info {
+                    opacity: 1;
+                }
+
+                .item-img {
+                    img {
+                        filter: brightness(60%) saturate(80%);
+                    }
+
+                    &::before {
+                        animation: work-border-scale .8s ease-out infinite;
+                    }
+                }
+
+                &::before {
+                    opacity: .5;
+                    transform: rotate(-45deg) scale(0.71) skew(44deg, 44deg);
+                }
+            }
+        }
+    }
+}
+
+@keyframes work-border-scale {
+    0% {
+        opacity: 1;
+        transform: rotate(45deg) scale(0.69);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) scale(0.79);
+    }
 }
