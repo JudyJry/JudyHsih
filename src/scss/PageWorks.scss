@@ -7,17 +7,19 @@
         text-align: center;
     }
 
-    .workList {
-        .workList-item {
+    .work-list {
+        .work-list-item {
             --r: 20em;
             position: relative;
             display: block;
             width: var(--r);
             height: var(--r);
             color: white;
+            background-color: transparent;
+            border: none;
             text-decoration: none;
             text-align: center;
-            margin: 0 auto;
+            margin: 3em auto;
 
             .item-img {
                 width: var(--r);
@@ -70,8 +72,6 @@
                 transition: all .5s;
                 transform: translateY(-50%);
 
-                .item-name {}
-
                 .item-tag {
                     color: rgba(white, 80%);
                 }
@@ -111,6 +111,80 @@
                     opacity: .5;
                     transform: rotate(-45deg) scale(0.71) skew(44deg, 44deg);
                 }
+            }
+
+            &:focus {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .work-detail {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(white, 95%);
+        border-radius: 0.375em;
+        color: rgba(black, 90%);
+        margin: 0.8em;
+
+        &.show {
+            display: block;
+        }
+
+        .btn-close {
+            box-sizing: border-box;
+            background: none;
+            font-size: 2.8em;
+            text-align: right;
+            padding-bottom: 1em;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .work-info {
+            --margin-em: 0.8em;
+            margin: var(--margin-em);
+
+            .work-name {
+                margin-bottom: 0.5em;
+            }
+
+            .member-list {
+                min-width: 15em;
+                max-width: max-content;
+                margin: var(--margin-em) 0;
+
+                .member-item {
+                    text-align: left;
+                    margin-bottom: var(--margin-em);
+
+                    .member-name {
+                        margin-right: var(--margin-em);
+                    }
+
+                    .member-position {
+                        color: rgba(black, 75%);
+                        font-size: var(--margin-em);
+                    }
+                }
+            }
+
+            .work-describe {
+                max-width: 60em;
+                margin: var(--margin-em) 0;
+            }
+
+            hr {
+                border: 0;
+                height: 1px;
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
             }
         }
     }
