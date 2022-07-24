@@ -16,23 +16,35 @@ interface WorkData {
 
 export default function PageWorks(): JSX.Element {
     return (
-        <div className="PageWorks position-absolute top-50 start-50 translate-middle page">
-            <div className="PageWorks-flex d-flex flex-column">
-                <h1 className="title">Project</h1>
-                <div className="work-list">
-                    {
-                        data.map((d, i) => {
-                            return (
-                                <WorkListItem
-                                    key={i}
-                                    data={d}
-                                ></WorkListItem>
-                            );
-                        })
-                    }
+        <>
+            <div className="PageWorks position-absolute top-50 start-50 translate-middle page">
+                <div className="PageWorks-flex d-flex flex-column">
+                    <h1 className="title">Project</h1>
+                    <div className="work-list">
+                        {
+                            data.map((d, i) => {
+                                return (
+                                    <WorkListItem
+                                        key={i}
+                                        data={d}
+                                    ></WorkListItem>
+                                );
+                            })
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+            {
+                data.map((d, i) => {
+                    return (
+                        <WorkDetail
+                            key={i}
+                            data={d}
+                        ></WorkDetail>
+                    );
+                })
+            }
+        </>
     );
 }
 
@@ -42,43 +54,55 @@ function WorkListItem(props: React.PropsWithChildren<{ data: WorkData }>): JSX.E
         workDetail = document.getElementById(props.data.name) as HTMLElement;
         workDetail.classList.add("show");
     }
+    return (
+        <button className="work-list-item" onClick={showWork}>
+            <div className="item-img">
+                <img src={props.data.cover as unknown as string} alt="" />
+            </div>
+            <div className="item-info">
+                <h2 className="item-name">{props.data.name}</h2>
+                <p className="item-tag">{props.data.tag}</p>
+            </div>
+        </button>
+    );
+}
+
+function WorkDetail(props: React.PropsWithChildren<{ data: WorkData }>): JSX.Element {
+    let workDetail: HTMLElement;
     const closeWork = () => {
         workDetail = document.getElementById(props.data.name) as HTMLElement;
         workDetail.classList.remove("show");
     }
     return (
-        <>
-            <button className="work-list-item" onClick={showWork}>
-                <div className="item-img">
-                    <img src={props.data.cover as unknown as string} alt="" />
-                </div>
-                <div className="item-info">
-                    <h2 className="item-name">{props.data.name}</h2>
-                    <p className="item-tag">{props.data.tag}</p>
-                </div>
-            </button>
-            <WorkDetail
-                data={props.data}
-                closeEvent={closeWork}
-            ></WorkDetail>
-        </>
-    );
-}
-
-function WorkDetail(props: React.PropsWithChildren<{ data: WorkData, closeEvent: React.MouseEventHandler<HTMLButtonElement> }>): JSX.Element {
-    return (
-        <div id={props.data.name} className="work-detail">
+        <div id={props.data.name} className="work-container flex-column">
             <div className="offcanvas-header flex-row-reverse">
-                <button type="button" className="btn-close" onClick={props.closeEvent}>&times;</button>
+                <button type="button" className="close" onClick={closeWork}>&times;</button>
             </div>
-            <div className="d-flex flex-row justify-content-center">
-                <div id={"carouselWork-" + props.data.name} className="carousel slide w-100 h-auto" data-bs-ride="carousel">
+            <div className="work-detail d-flex flex-lg-row flex-column justify-content-end align-items-center">
+                <div id={"carouselWork-" + props.data.name} className="carouselWork carousel slide" data-bs-ride="carousel">
+                    <div className="carousel-indicators">
+                        {
+                            props.data.img.map((d, i) => {
+                                return (
+                                    <button
+                                        key={i}
+                                        type="button"
+                                        data-bs-target={"#carouselWork-" + props.data.name}
+                                        data-bs-slide-to={i}
+                                        className={i == 0 ? "active" : ""}
+                                        //aria-current={i == 0 ? "true" : "false"}
+                                        aria-label={"Slide " + i}
+                                    ></button>
+                                );
+                            })
+                        }
+                    </div>
                     <div className="carousel-inner">
                         {
                             props.data.img.map((d, i) => {
                                 return (
-                                    <div className="carousel-item" key={i}>
-                                        <img src={d as unknown as string} className="d-block w-100"></img>
+                                    <div className={i == 0 ? "carousel-item active" : "carousel-item"} key={i}>
+                                        <img src={d as unknown as string} className="img-fluid d-block"></img>
                                     </div>
                                 );
                             })

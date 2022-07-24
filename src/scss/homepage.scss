@@ -28,7 +28,6 @@ $logo-red:rgb(217, 73, 93);
             }
 
             &::before {
-                --r: 15em;
                 content: "";
                 position: absolute;
                 z-index: -1;
@@ -42,14 +41,13 @@ $logo-red:rgb(217, 73, 93);
             }
 
             &::after {
-                --r: calc(15em + 10px);
                 content: "";
                 position: absolute;
                 z-index: -1;
                 top: -5px;
                 left: -5px;
-                width: var(--r);
-                height: var(--r);
+                width: calc(var(--r) + 10px);
+                height: calc(var(--r) + 10px);
                 border: 1px solid white;
                 transform: rotate(45deg);
             }
@@ -73,6 +71,7 @@ $logo-red:rgb(217, 73, 93);
             }
 
             @media (max-width: 991.98px) {
+                --r: 10em;
                 margin: calc(var(--r)/-10);
 
                 &.order-1,
