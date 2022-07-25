@@ -6,7 +6,7 @@ interface WorkData {
     name: string;
     tag: string;
     cover: typeof import("*.png") | string;
-    describe: string;
+    describe: string | string[];
     member: {
         "member-name": string;
         position: string;
@@ -20,7 +20,7 @@ export default function PageWorks(): JSX.Element {
             <div className="PageWorks position-absolute top-50 start-50 translate-middle page">
                 <div className="PageWorks-flex d-flex flex-column">
                     <h1 className="title">Project</h1>
-                    <div className="work-list">
+                    <div className="work-list d-flex flex-lg-row flex-column">
                         {
                             data.map((d, i) => {
                                 return (
@@ -133,7 +133,15 @@ function WorkDetail(props: React.PropsWithChildren<{ data: WorkData }>): JSX.Ele
                         }
                     </ul>
                     <hr></hr>
-                    <p className="work-describe">{props.data.describe}</p>
+                    <div className="work-describe">
+                        {typeof props.data.describe == "string" ?
+                            <p>{props.data.describe}</p>
+                            :
+                            props.data.describe.map((d, i) => {
+                                return (<p>{d}</p>);
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>
