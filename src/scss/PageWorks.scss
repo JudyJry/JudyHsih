@@ -292,3 +292,136 @@
         transform: rotate(45deg) scale(0.79);
     }
 }
+
+.work-modal {
+    --margin-em: 0.8em;
+    overflow: hidden;
+
+    .modal-fullscreen {
+        width: auto;
+        max-width: none;
+        height: calc(100% - (var(--margin-em)*2));
+        max-height: none;
+        margin: 1em;
+    }
+
+    .modal-content {
+        background-color: rgba(white, 95%);
+        color: rgba(black, 90%);
+        border-radius: 0.375em;
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-body {
+            overflow: hidden;
+
+            .work-detail {
+                position: relative;
+                height: 100%;
+                overflow: hidden;
+
+                .work-info {
+                    height: 100%;
+                    --margin-em: 0.8em;
+                    margin: var(--margin-em);
+                    padding-left: var(--margin-em);
+
+                    @media (max-width:991.98px) {
+                        padding-top: var(--margin-em);
+                        padding-left: 0;
+                    }
+
+                    .work-name {
+                        letter-spacing: 0.2em;
+                        margin-bottom: 0.5em;
+                    }
+
+                    .member-list {
+                        min-width: 15em;
+                        max-width: max-content;
+                        margin: var(--margin-em) 0;
+                        padding-left: 0;
+
+                        .member-item {
+                            text-align: left;
+                            list-style: none;
+                            margin-bottom: var(--margin-em);
+
+                            .member-name {
+                                margin-right: var(--margin-em);
+                            }
+
+                            .member-position {
+                                color: rgba(black, 0.6);
+                                font-size: var(--margin-em);
+                            }
+                        }
+                    }
+
+                    .work-describe {
+                        max-width: 60em;
+                        margin: var(--margin-em) 0;
+                    }
+
+                    hr {
+                        border: 0;
+                        height: 1px;
+                        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
+                    }
+                }
+
+                .carouselWork {
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                    overflow: hidden;
+
+                    .carousel-indicators button {
+                        width: 10px;
+                        height: 10px;
+                        transform: rotate(45deg);
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+
+                    .carousel-inner {
+                        width: 100%;
+                        height: 100%;
+
+                        .carousel-item {
+                            width: 100%;
+                            height: 100%;
+
+                            & img {
+                                object-fit: contain;
+                                object-position: center center;
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                        }
+                    }
+
+                    .carousel-control-prev,
+                    .carousel-control-next {
+                        width: 10%;
+                    }
+
+                    .carousel-control-prev:hover {
+                        background-image: linear-gradient(to left, rgba(black, 0), rgba(black, 0.4));
+                    }
+
+                    .carousel-control-next:hover {
+                        background-image: linear-gradient(to right, rgba(black, 0), rgba(black, 0.4));
+                    }
+
+                    @media (max-width:991.98px) {
+                        height: (45 / 64) * 100%;
+                    }
+                }
+            }
+        }
+    }
+}
