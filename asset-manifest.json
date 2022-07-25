@@ -1,15 +1,26 @@
 {
   "files": {
-    "main.css": "/JudyHsih/static/css/main.b6380901.css",
-    "main.js": "/JudyHsih/static/js/main.73b21718.js",
+    "main.css": "/JudyHsih/static/css/main.c2c9d443.css",
+    "main.js": "/JudyHsih/static/js/main.d4d5c12c.js",
     "static/js/787.e7bf7e95.chunk.js": "/JudyHsih/static/js/787.e7bf7e95.chunk.js",
+    "static/media/01.png": "/JudyHsih/static/media/01.e76f3552db1b0dd61bb4.png",
+    "static/media/01.jpg": "/JudyHsih/static/media/01.9ff6acae250df5051db6.jpg",
+    "static/media/02.jpg": "/JudyHsih/static/media/02.d8c6687b4b37925d3f47.jpg",
+    "static/media/02.png": "/JudyHsih/static/media/02.e35712012da8916ccb3a.png",
+    "static/media/03.jpg": "/JudyHsih/static/media/03.d28573c9d8755c3b4c56.jpg",
+    "static/media/04.jpg": "/JudyHsih/static/media/04.1b81d93803ed901ec4a3.jpg",
+    "static/media/05.jpg": "/JudyHsih/static/media/05.f4374af0a5cdc967c348.jpg",
+    "static/media/cover.png": "/JudyHsih/static/media/cover.a697d9bb081890bc8426.png",
+    "static/media/about-1.jpg": "/JudyHsih/static/media/about-1.61a664c7ba12232981c0.jpg",
+    "static/media/about-2.png": "/JudyHsih/static/media/about-2.7fc9dd63ba32d789722a.png",
+    "static/media/logo-white.png": "/JudyHsih/static/media/logo-white.97aeb47539c8cee40ded.png",
     "index.html": "/JudyHsih/index.html",
-    "main.b6380901.css.map": "/JudyHsih/static/css/main.b6380901.css.map",
-    "main.73b21718.js.map": "/JudyHsih/static/js/main.73b21718.js.map",
+    "main.c2c9d443.css.map": "/JudyHsih/static/css/main.c2c9d443.css.map",
+    "main.d4d5c12c.js.map": "/JudyHsih/static/js/main.d4d5c12c.js.map",
     "787.e7bf7e95.chunk.js.map": "/JudyHsih/static/js/787.e7bf7e95.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6380901.css",
-    "static/js/main.73b21718.js"
+    "static/css/main.c2c9d443.css",
+    "static/js/main.d4d5c12c.js"
   ]
 }
