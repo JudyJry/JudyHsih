@@ -292,27 +292,3 @@
         transform: rotate(45deg) scale(0.79);
     }
 }
-
-@keyframes scale-in-odd {
-    0% {
-        transform: translateY(calc(var(--r)/-2.5)) scale(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(calc(var(--r)/-2.5)) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes scale-in-even {
-    0% {
-        transform: translateY(calc(var(--r)/2.5)) scale(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(calc(var(--r)/2.5)) scale(1);
-        opacity: 1;
-    }
-}
